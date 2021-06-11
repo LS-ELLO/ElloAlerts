@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- <META HTTP-EQUIV="refresh" CONTENT="60"> -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.8.2/css/all.min.css"/>
+    <title>Document</title>
+    <style>
+        ul{
+           list-style:none;
+        }
+        a {
+            text-decoration: none;
+        }
+        .review_text {
+            color: #ffdd57;
+        }
+    </style>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
+    <script type="text/javascript">
+        let prev_num = 0;
+        let len = 0;
+        
+        function showPopup() { window.open("popup.html", "a", "width=400, height=300, left=100, top=50"); }
+        function doAlarm() {
+            var url = 'https://github.ls-electric.com/api/v3/repos/ympark4/ympark4/events'
+            
+            $.ajax({
+                beforeSend: function(request) {
+                    request.setRequestHeader("Authorization", 'token 8ca12a9175423ce3bfb1fe0283e146f515258412');
+                },
+                dataType: "json",
+                url: url,
+                success: function(data) {
+                    console.log('success');
+                    var list = $('#review-events');
+
+                    len = 0;
+
+                    for (var i=0; i< data.length; i++) {
+                        if (data[i].type == 'CommitCommentEvent') {
+                            len += 1;
+                        }
+                    }
+                    console.log(len + "개의 CommitComment를 찾았습니다.");
+                    console.log('현재 prev_num: ', prev_num);
+
+                    // prev_num 과 현재 len 비교해서 popup창 띄울지 말지 
+                    // popup창 띄우더라도, 한번만 띄워지고 다음부터는 안뜸 (로직)
+                    if(prev_num == 0) {
+                        prev_num = len;
+                        console.log('초기')
+                        console.log(prev_num);
+                        console.log(len);
+                    } else if (prev_num < len) {
+                        showPopup();
+                        prev_num = len;
+                    }
+
+                    list.empty() // list 내용 삭제 
+                    
+
+                    $.each(data, function(key, val) {
+                        if (val.type == "CommitCommentEvent") {
+                            console.log(val);
+                            console.log(val.payload.comment.body);
+                            list.append('<li id="' + val.payload.comment.created_at + '"><a class="review_text" href="'+ val.payload.comment.html_url + '"><i class="fab fa-github"></i>&nbsp'
+                                         + val.payload.comment.body 
+                                         + '</a> [' + val.actor.login + ' @ ' + val.payload.comment.created_at + ']</li>');
+                            // list.append('<li id="' + val.payload.comment.created_at + '"><a href="'+ val.payload.comment.html_url + '">'
+                            //              + ' [review 알림] ' + val.payload.comment.body 
+                            //              + '</a> [' + val.actor.login + ' @ ' + val.payload.comment.created_at + ']</li>');
+                        }
+                    });
+                }
+            });
+
+            // $.getJSON(url, function(data) {
+            //     var list = $('#review-events');
+        
+            //     console.log(data.data)
+
+            // });
+        };
+        function getInfiniteAlarm() {
+			setInterval(function() {
+                console.log('do! Alarm!')
+				doAlarm();
+			}, 60000); // 60초 간격으로 API call
+		}
+    </script>
+    <script type="text/javascript">
+        $(document).ready(function() {
+            doAlarm();
+            getInfiniteAlarm();
+        });
+    </script>
+    
+</head>
+<body>
+    <ul id="review-events"></ul>
+</body>
+</html>
