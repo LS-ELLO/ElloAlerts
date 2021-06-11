@@ -7,9 +7,7 @@
 
 <br>
 
-coded by Javascript <img src="https://img.shields.io/badge/Linux-FCC624?style=flat-square&logo=Linux&logoColor=white"/>
-<img src="https://img.shields.io/badge/Shell-FFD500?style=flat-square&logo=Shell&logoColor=white"/>
-<img src="https://img.shields.io/badge/PowerShell-5391FE?style=flat-square&logo=PowerShell&logoColor=white"/>
-<img src="https://img.shields.io/badge/GitHub-181717?style=flat-square&logo=GitHub&logoColor=white"/>
+coded by Javascript <img src="https://img.shields.io/badge/Javascript-FCC624?style=flat-square&logo=Javascript&logoColor=white"/>
+<img src="https://img.shields.io/badge/Ajax-FFD500?style=flat-square&logo=Ajax&logoColor=white"/>
 <img src="https://img.shields.io/badge/macOS-000000?style=flat-square&logo=macOS&logoColor=white"/>
 <img src="https://img.shields.io/badge/Windows-0078D6?style=flat-square&logo=Windows&logoColor=white"/>
