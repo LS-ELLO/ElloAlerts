@@ -45,10 +45,15 @@
     <script type="text/javascript">
         let prev_num = 0;
         let len = 0;
+        let repo_name = '';
         
         function showPopup() { window.open("popup.html", "a", "width=400, height=300, left=100, top=50"); }
         function doAlarm() {
-            var url = 'https://github.ls-electric.com/api/v3/repos/ympark4/ympark4/events'
+
+            var pjt_name = document.getElementById('myText').value
+            var repo_name = pjt_name.split('/')[3] + '/' + pjt_name.split('/')[4]
+
+            var url = 'https://github.ls-electric.com/api/v3/repos/' + repo_name + '/events'
             
             $.ajax({
                 beforeSend: function(request) {
@@ -61,6 +66,8 @@
                     var list = $('#review-events');
 
                     len = 0;
+
+                    console.log(data);
 
                     for (var i=0; i< data.length; i++) {
                         if (data[i].type == 'CommitCommentEvent') {
@@ -152,7 +159,9 @@
                                 지정된 프로젝트 repository
                             </h2>
                         </div>
-                        <br><br>
+                        <div class="block">
+                            <input type="text" id="myText" onkeyup="doAlarm()" style="width: 500px; font-size: 20px; font-weight: bold;">
+                        </div>
                         <div class="block">
                             <h1 class="title Index_title__2JEDA">최근 리뷰 이력</h1>
                             <h2 class="subtitle is-6 Index_subtitle__3dWW_">최근에 언급된 내용을 확인해보세요.</h2>
