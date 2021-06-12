@@ -11,7 +11,7 @@ coded by Javascript <img src="https://img.shields.io/badge/Javascript-FCC624?sty
 <img src="https://img.shields.io/badge/Ajax-FFD500?style=flat-square&logo=Ajax&logoColor=white"/>
 <img src="https://img.shields.io/badge/macOS-000000?style=flat-square&logo=macOS&logoColor=white"/>
 <img src="https://img.shields.io/badge/Windows-0078D6?style=flat-square&logo=Windows&logoColor=white"/>
-<img src="https://img.shields.io/badge/exe-0078D6?style=flat-square&logo=exe&logoColor=white"/>
+<img src="https://img.shields.io/badge/exe-0078D6?style=flat-square&logo=DocuSign&logoColor=white"/>
 
 <img src="./pic1.png" width="80%">
 <img src="./pic2.png" width="60%">
