@@ -13,7 +13,7 @@ coded by Javascript <img src="https://img.shields.io/badge/Javascript-FCC624?sty
 <img src="https://img.shields.io/badge/Windows-0078D6?style=flat-square&logo=Windows&logoColor=white"/>
 
 <img src="./pic1.png" width="80%">
-<img src="./pic2.png" width="80%">
+<img src="./pic2.png" width="60%">
 
 ## How To Start
 ```node
