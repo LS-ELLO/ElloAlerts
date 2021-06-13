@@ -18,7 +18,7 @@ coded by Javascript <img src="https://img.shields.io/badge/Javascript-FCC624?sty
 
 ## How To Start
 ```node
-npm start 
+npm i && npm start 
 ```
 
 ## How To SetUp
