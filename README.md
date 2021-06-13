@@ -16,6 +16,11 @@ coded by Javascript <img src="https://img.shields.io/badge/Javascript-FCC624?sty
 <img src="./pic1.png" width="80%">
 <img src="./pic2.png" width="60%">
 
+## Prerequisite
+```node
+npm i custom-electron-titlebar
+```
+
 ## How To Auto Run
 [ref](https://stackoverflow.com/questions/46318177/how-to-use-auto-launch-to-start-app-on-system-startup)
 
